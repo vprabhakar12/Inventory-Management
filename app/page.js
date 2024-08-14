@@ -13,6 +13,12 @@ export default function Home() {
   const [itemQuantity, setItemQuantity] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      updateInventory();
+    }
+  }, []);
+
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'));
     const docs = await getDocs(snapshot);
@@ -24,7 +30,7 @@ export default function Home() {
       });      
     });
     setInventory(inventoryList);
-    setFilteredInventory(inventoryList); // Initially, show all items
+    setFilteredInventory(inventoryList);
   };
 
   const addItem = async (itemName, quantityToAdd = 1) => {
@@ -87,13 +93,9 @@ export default function Home() {
     setFilteredInventory(inventory);
   };
 
-  useEffect(() => {
-    updateInventory();
-  }, []);
-
   return (
-    <Box sx={{ padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F4F6F8', minHeight: '100vh' }}>
-      <Typography variant='h4' sx={{ color: '#3E5060', marginBottom: 4 }}>Inventory Management Dashboard</Typography>
+    <Box sx={{ padding: '20px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F4F6F8', minHeight: '100vh' }}>
+      <Typography variant='h4' sx={{ color: '#2C3E50', marginBottom: 4 }}>Inventory Management Dashboard</Typography>
 
       <TableContainer component={Paper} sx={{ width: '80%', height: '50vh', overflowY: 'auto', marginBottom: 4, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
         <Table stickyHeader>
@@ -107,7 +109,7 @@ export default function Home() {
           <TableBody>
             {filteredInventory.map((item) => (
               <TableRow key={item.name}>
-                <TableCell component="th" scope="row" sx={{ fontWeight: searchQuery ? 'bold' : 'normal' }}>
+                <TableCell component="th" scope="row">
                   {item.name}
                 </TableCell>
                 <TableCell align="right">{item.quantity}</TableCell>
