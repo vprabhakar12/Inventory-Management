@@ -10,7 +10,7 @@ The implementation follows basic principles of state management and data synchro
 - **User Interface**: The user interface is built with Material-UI, providing a modern and responsive design.
 - **Search and Filter**: The search functionality allows users to filter items in real-time, with an option to reset the search and display all items.
 
-## Technology Stack 🛠️
+## Technology Stack 👨‍💻
 
 - **Programming Language**: JavaScript 💻
 - **Framework**: Next.js 🌐
@@ -40,11 +40,11 @@ To set up the environment for this project, follow these steps:
 
 ## How to RUN 🕹️
 
-Ensure that your Firebase configuration is correctly added to the `firebase.js` file.  
-Start the application by running 
+1. Ensure that your Firebase configuration is correctly added to the `firebase.js` file.  
+2. Start the application by running 
 ``` npm run dev ```
-The application will be live at http://localhost:3000.  
-Interact with the inventory management system by adding, removing, and searching for items.
+3. The application will be live at http://localhost:3000.  
+4. Interact with the inventory management system by adding, removing, and searching for items.
 
 ## References 🙌
 1. https://medium.com/@billzhangsc/building-an-inventory-management-app-with-next-js-react-and-firebase-e9647a61eb82
