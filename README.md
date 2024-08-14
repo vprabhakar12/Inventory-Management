@@ -42,8 +42,7 @@ To set up the environment for this project, follow these steps:
 
 Ensure that your Firebase configuration is correctly added to the `firebase.js` file.  
 Start the application by running 
-``` npm run dev
-```
+``` npm run dev ```
 The application will be live at http://localhost:3000.  
 Interact with the inventory management system by adding, removing, and searching for items.
 
